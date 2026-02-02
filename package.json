@@ -1,0 +1,33 @@
+{
+  "name": "caimera-quiz-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "worker": "tsx worker.ts",
+    "dev:all": "concurrently -n server,worker \"pnpm run dev\" \"pnpm run worker\"",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "start:worker": "node dist/worker.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "bullmq": "^5.10.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "ioredis": "^5.4.1",
+    "mongoose": "^8.8.3",
+    "nanoid": "^5.0.7"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.17.6",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
