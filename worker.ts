@@ -1,10 +1,10 @@
 import 'dotenv/config';
 import { Worker, Queue } from 'bullmq';
-import { redis, pub, EVENTS_CHANNEL, QUEUE_NAME } from './redis';
-import { generateQuestion, sanitizeQuestion } from './questions';
-import { connectMongo } from './mongo';
-import { User } from './models/User';
-import { publishEvent } from './rabbit';
+import { redis, pub, EVENTS_CHANNEL, QUEUE_NAME } from './redis.js';
+import { generateQuestion, sanitizeQuestion } from './questions.js';
+import { connectMongo } from './mongo.js';
+import { User } from './models/User.js';
+import { publishEvent } from './rabbit.js';
 
 await connectMongo();
 

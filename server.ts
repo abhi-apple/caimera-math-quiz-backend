@@ -2,10 +2,10 @@ import 'dotenv/config';
 import express, { type Response } from 'express';
 import cors from 'cors';
 import { Queue } from 'bullmq';
-import { redis, sub, pub, EVENTS_CHANNEL, QUEUE_NAME } from './redis';
-import { sanitizeQuestion } from './questions';
-import { connectMongo } from './mongo';
-import { User } from './models/User';
+import { redis, sub, pub, EVENTS_CHANNEL, QUEUE_NAME } from './redis.js';
+import { sanitizeQuestion } from './questions.js';
+import { connectMongo } from './mongo.js';
+import { User } from './models/User.js';
 
 const app = express();
 app.use(cors());
@@ -25,7 +25,7 @@ function broadcast(event: string, data: unknown) {
 }
 
 sub.subscribe(EVENTS_CHANNEL);
-sub.on('message', (_channel, message) => {
+sub.on('message', (_channel: string, message: string) => {
   try {
     const { event, data } = JSON.parse(message);
     broadcast(event, data);
