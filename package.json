@@ -8,7 +8,7 @@
     "worker": "tsx worker.ts",
     "dev:all": "concurrently -n server,worker \"pnpm run dev\" \"pnpm run worker\"",
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "concurrently -n server,worker \"node dist/server.js\" \"node dist/worker.js\"",
     "start:worker": "node dist/worker.js"
   },
   "dependencies": {
